@@ -5,6 +5,7 @@
     $username=$_POST["username"];
     $password=$_POST["password"];
 
+
     $query="SELECT * FROM users WHERE username=?";
     $stmt=mysqli_stmt_init($query);
     $stmt=mysqli_prepare($conn, $query);
@@ -34,6 +35,7 @@
     mysqli_stmt_close($stmt);
     mysqli_close($conn);
 }
+    
 else{
     header("Location:../index.php");
     exit();

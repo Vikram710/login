@@ -8,10 +8,48 @@
         $password=$_POST["password"];
         $confirm_password=$_POST["confirm_password"];
         $hashed_password=password_hash($password,PASSWORD_DEFAULT);
+        $username_exists=0;
+
+        //error handlers
+
+        //emty fields
+        if(empty($username)||empty($email)|| empty($password)|| empty($confirm_password)){
+            header("Location:../signup.php?error=emptyfields&username=".$username."&email=".$email);
+            exit();
+        }
+        //not email
+        if(!filter_var($email,FILTER_VALIDATE_EMAIL)){
+            header("Location:../signup.php?error=invalidemail&username=".$username."");
+            exit();
+        } 
+        //username char
+        else if(!preg_match("/^[a-zA-Z0-9]*$/",$username)){
+            header("Location:../signup.php?error=invalidusername&email=".$email."");
+            exit();
+        }
 
         //confirm passowrd
-         if($password!==$confirm_password){
+         else if($password!==$confirm_password){
             header("Location:../signup.php?error=passwordnotmatch&username=".$username."&email=".$email);
+            exit();
+        }
+
+        //username exists??
+        $query1="SELECT username FROM users WHERE username=?";
+        $stmt1=mysqli_prepare($conn, $query1);
+    
+        mysqli_stmt_bind_param($stmt1,"s",$username);
+        mysqli_stmt_execute($stmt1);
+        mysqli_stmt_store_result($stmt1);
+        $resultcheck=mysqli_stmt_num_rows($stmt1);
+        if($resultcheck >0){
+            return $username_exists=1;
+        }
+        mysqli_stmt_close($stmt1);
+        
+
+        if( $username_exists==1){
+            header("Location:../signup.php?error=invalidusername&email=".$email."");
             exit();
         }
         else{
@@ -22,6 +60,9 @@
                     mysqli_stmt_execute($stmt);
                     mysqli_stmt_close($stmt);
                     mysqli_close($conn);
+                    header("Location:../index.php?result=".$resultcheck."");
+        exit();
+
         }
     }
 
