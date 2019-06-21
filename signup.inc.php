@@ -27,7 +27,11 @@
             header("Location:../signup.php?error=invalidusername&email=".$email."");
             exit();
         }
-
+          //password length
+        else if(strlen($password)<8){
+            header("Location:../signup.php?error=smallpassowrd&username=".$username."&email=".$email);
+            exit();
+        }
         //confirm passowrd
          else if($password!==$confirm_password){
             header("Location:../signup.php?error=passwordnotmatch&username=".$username."&email=".$email);
