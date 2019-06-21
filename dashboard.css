@@ -1,0 +1,133 @@
+body{
+  margin:0px;
+  text-align: center;
+
+}
+nav{
+    text-align:left;
+    width: 100%;
+    background:#333; 
+    padding-right: 2%;
+    height:80px;
+    position: fixed;
+  }
+  
+div.logo {
+    width: 13%;
+    height:65px;
+    float: left;
+    text-align: center;
+    font-size:25px;
+    margin-top:5px;
+    margin-left:10px;
+    padding-left: 2%;
+    background:white;
+    background-image: url("logo.png");
+    background-repeat: no-repeat;
+    background-size: contain;
+    border: 1px solid red;
+  }
+
+li {
+    margin-top:5px;
+    margin-left:10px;
+    list-style-type: none;
+    display: inline-block;
+    padding:10px;
+  }
+li:hover {
+    background: tomato;
+    color: #fff;
+  }
+
+a{
+    text-decoration: none;
+    color:white;
+}
+div.form{
+    float:right;
+    margin-top:-53px;
+}
+
+button{
+    background:#333;
+    color:white;
+    border:0px;
+    padding:10px;
+    font-size:15px;
+    margin-right:10px;
+}
+button:hover{
+    background:tomato;
+}
+
+
+
+div.bottom {
+  display: grid;
+  grid-template-columns: auto auto auto auto;
+  grid-gap: 10px;
+  position: relative;
+  bottom: 0px;
+  width: 100%;
+  background:#333; 
+  padding-right: 2%;
+  height:200px;
+  color:white;
+}
+
+div.bottom  div {
+  background-color:#333;
+  color:white;
+  text-align: center;
+  width:502px;
+  font-size: 20px;
+
+}
+
+table {
+  border-collapse: collapse;
+  margin-left:540px;
+  width:500px;
+  text-align:center;
+  
+}
+p{
+  font-size:30px;
+  height:40px;
+ 
+
+}
+
+table, th, td {
+  border: 1px solid black;
+  padding: 15px;
+}
+th.tb{
+  border: 1px solid black;
+  padding: 25px;
+}
+
+
+input{
+  padding:10px;
+  margin-bottom:10px;
+  width:230px;
+}
+
+button.hi{
+  width:100px;
+  margin:0px;
+
+}
+  form.hey{
+    text-align: center;
+  }
+  form.hey input{
+    margin-left:-100px;
+  }
+
+  form.hey button{
+    margin-top:-35px;
+  }
+  
