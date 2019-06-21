@@ -43,7 +43,7 @@
         mysqli_stmt_store_result($stmt1);
         $resultcheck=mysqli_stmt_num_rows($stmt1);
         if($resultcheck >0){
-            return $username_exists=1;
+            $username_exists=1;
         }
         mysqli_stmt_close($stmt1);
         
