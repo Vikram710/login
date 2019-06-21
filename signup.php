@@ -5,7 +5,7 @@ session_start();
 <html>
     <head>
         <title>php</title>
-        <link href="signup.css" rel="stylesheet">
+        <link href="sign_up.css" rel="stylesheet">
     </head>
     <body>
         <div class="form">
@@ -40,13 +40,25 @@ session_start();
                 $url="http://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
 
                 if(strpos($url,"error=emptyfields")==true){
-                    echo '<p>Fill up all fields.</p>';
+                    echo '<p class="error">Fill up all fields.</p>';
                     exit();
                 }
                 else if(strpos($url,"error=invalidemail")==true){
-                    echo '<p>Invalid email id.</p>';
-                    exit();
+                    echo '<p class="error">Invalid email id.</p>';
+                    exit();                    
                 }
+                else if(strpos($url,"error=invalidemail")==true){
+                    echo '<p class="error">Invalid email id.</p>';
+                    exit();}
+                else if(strpos($url,"error=invalidusername")==true){
+                    echo '<p class="error">Username already taken.</p>';
+                    exit();}
+                else if(strpos($url,"error=smallpassword")==true){
+                    echo '<p class="error">Password is too short.</p>';
+                    exit();}
+                else if(strpos($url,"error=passwordnotmatch")==true){
+                    echo '<p class="error">Password did not match.</p>';
+                    exit();}
 
                 ?>
 
